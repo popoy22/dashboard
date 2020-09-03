@@ -1,0 +1,32 @@
+<div class="p-grid mt">
+  <div
+    class="p-col p-md-6 p-mt-4"
+    *ngFor="let i of ['SIT 1', 'SIT 2', 'SIT 3', 'SIT 4']"
+  >
+    <p-card header="{{ i }}">
+      <p-chart type="pie" [data]="data" [options]="options"></p-chart>
+      <br /><br />
+      <p-treeTable [value]="tests">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Name</th>
+            <th>Passed</th>
+            <th>Failed</th>
+            <th>Total</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+          <tr [ttRow]="rowNode">
+            <td>
+              <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+              {{ rowData.name }}
+            </td>
+            <td [innerHTML]="rowData.passed"></td>
+            <td [innerHTML]="rowData.failed"></td>
+            <td [innerHTML]="rowData.total"></td>
+          </tr>
+        </ng-template>
+      </p-treeTable>
+    </p-card>
+  </div>
+</div>
