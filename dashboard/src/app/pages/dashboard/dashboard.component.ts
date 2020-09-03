@@ -9,8 +9,8 @@ import 'chartjs-plugin-labels';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  data: any;
-  options: any;
+  data: any = [];
+  options: any = [];
   tests: TreeNode[];
 
   constructor(private testService: TestsuiteService) {}
@@ -18,34 +18,64 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.loadTreeTable();
   }
+
+  // Loading Tree Table
   loadTreeTable() {
     this.testService.getTests().then((tests: any) => {
       this.tests = tests;
-      this.data = {
-        labels: ['Passed', 'Failed'],
-        datasets: [
-          {
-            data: [70, 30],
-            backgroundColor: ['#089724', '#FF6384'],
-            hoverBackgroundColor: ['#089724', '#FF6384'],
-          },
-        ],
-      };
-      this.options = {
-        plugins: {
-          labels: {
-            // render 'label', 'value', 'percentage', 'image' or custom function, default is 'percentage'
-
-            render: function (args) {
-              return args.percentage + '%' + ' (' + args.value + ')';
+      this.tests.forEach((test) => {
+        this.data.push({
+          labels: ['Passed', 'Failed'],
+          datasets: [
+            {
+              data: [test.data.passed, test.data.failed],
+              backgroundColor: ['#089724', '#FF6384'],
+              hoverBackgroundColor: ['#089724', '#FF6384'],
             },
-            fontColor: '#fff',
-            fontSize: 16,
-          },
-        },
-      };
+          ],
+        });
 
-      console.log(this.options);
+        this.options.push({
+          plugins: {
+            labels: {
+              render: function (args) {
+                return args.percentage + '%' + ' (' + args.value + ')';
+              },
+              fontColor: '#fff',
+              fontSize: 12,
+            },
+          },
+          title: {
+            display: true,
+            text: test.data.name,
+            fontSize: 18,
+          },
+          animation: {
+            tension: {
+              duration: 1000,
+              easing: 'linear',
+              from: 1,
+              to: 0,
+              loop: true,
+            },
+          },
+        });
+      });
     });
+  }
+
+  // Changing Graph
+  clickGraph(index, passed, failed, title) {
+    this.data[index] = {
+      labels: ['Passed', 'Failed'],
+      datasets: [
+        {
+          data: [passed, failed],
+          backgroundColor: ['#089724', '#FF6384'],
+          hoverBackgroundColor: ['#089724', '#FF6384'],
+        },
+      ],
+    };
+    this.options[index].title.text = title;
   }
 }

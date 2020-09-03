@@ -1,12 +1,13 @@
-<div class="p-grid mt">
-  <div
-    class="p-col p-md-6 p-mt-4"
-    *ngFor="let i of ['SIT 1', 'SIT 2', 'SIT 3', 'SIT 4']"
-  >
-    <p-card header="{{ i }}">
-      <p-chart type="pie" [data]="data" [options]="options"></p-chart>
+<div class="p-grid mt p-mt-4">
+  <div class="p-col p-md-6" *ngFor="let t of tests | keyvalue">
+    <p-card header="{{ t.value.data.name }}">
+      <p-chart
+        type="pie"
+        [data]="data[t.key]"
+        [options]="options[t.key]"
+      ></p-chart>
       <br /><br />
-      <p-treeTable [value]="tests">
+      <p-treeTable [value]="t.value.children">
         <ng-template pTemplate="header">
           <tr>
             <th>Name</th>
@@ -19,11 +20,44 @@
           <tr [ttRow]="rowNode">
             <td>
               <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
-              {{ rowData.name }}
+              <a
+                (click)="
+                  clickGraph(
+                    t.key,
+                    rowData.passed,
+                    rowData.failed,
+                    rowData.name
+                  )
+                "
+                style="cursor: pointer"
+                >{{ rowData.name }}</a
+              >
             </td>
-            <td [innerHTML]="rowData.passed"></td>
-            <td [innerHTML]="rowData.failed"></td>
-            <td [innerHTML]="rowData.total"></td>
+            <td [innerHTML]="rowData.passed" style="color: green"></td>
+            <td [innerHTML]="rowData.failed" style="color: red"></td>
+            <td [innerHTML]="rowData.total" style="font-weight: bolder"></td>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="footer">
+          <tr>
+            <td>
+              <a
+                style="cursor: pointer"
+                (click)="
+                  clickGraph(
+                    t.key,
+                    t.value.data.passed,
+                    t.value.data.failed,
+                    t.value.data.name
+                  )
+                "
+                >{{ t.value.data.name }} Totals</a
+              >
+            </td>
+            <td>{{ t.value.data.passed }}</td>
+            <td>{{ t.value.data.failed }}</td>
+            <td>{{ t.value.data.passed + t.value.data.failed }}</td>
           </tr>
         </ng-template>
       </p-treeTable>

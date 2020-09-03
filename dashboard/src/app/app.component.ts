@@ -51,7 +51,7 @@ import {
 export class AppComponent implements AfterViewInit, OnDestroy {
   public isLogged: boolean = false;
 
-  public menuInactiveDesktop: boolean;
+  public menuInactiveDesktop: boolean = true;
 
   public menuActiveMobile: boolean;
 

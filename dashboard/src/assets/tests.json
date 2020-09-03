@@ -2,33 +2,33 @@
   "data": [
     {
       "data": {
-        "name": "SIT1",
-        "passed": "70 (70%)",
-        "failed": "30 (30%)",
-        "total": "<h2>100</h2>"
+        "name": "SIT 1",
+        "passed": 70,
+        "failed": 30,
+        "total": 100
       },
       "children": [
         {
           "data": {
             "name": "SG",
-            "passed": "50",
-            "failed": "15",
+            "passed": 50,
+            "failed": 15,
             "total": 65
           },
           "children": [
             {
               "data": {
                 "name": "GEB 1",
-                "passed": "15",
-                "failed": "20",
+                "passed": 15,
+                "failed": 20,
                 "total": 35
               }
             },
             {
               "data": {
                 "name": "GEB 2",
-                "passed": "15",
-                "failed": "15",
+                "passed": 15,
+                "failed": 15,
                 "total": 30
               }
             }
@@ -37,17 +37,72 @@
         {
           "data": {
             "name": "Vietnam",
-            "passed": 700,
-            "failed": 300,
-            "total": 100
+            "passed": 15,
+            "failed": 20,
+            "total": 35
           },
           "children": [
             {
               "data": {
                 "name": "GEB",
-                "passed": 50,
-                "failed": 50,
-                "total": 100
+                "passed": 15,
+                "failed": 20,
+                "total": 35
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "data": {
+        "name": "SIT 2",
+        "passed": 20,
+        "failed": 80,
+        "total": 100
+      },
+      "children": [
+        {
+          "data": {
+            "name": "Thailand",
+            "passed": 50,
+            "failed": 15,
+            "total": 65
+          },
+          "children": [
+            {
+              "data": {
+                "name": "Thailand GEB 1",
+                "passed": 15,
+                "failed": 20,
+                "total": 35
+              }
+            },
+            {
+              "data": {
+                "name": "Thailand GEB 2",
+                "passed": 15,
+                "failed": 15,
+                "total": 30
+              }
+            }
+          ]
+        },
+        {
+          "data": {
+            "name": "Malaysia",
+            "passed": 15,
+            "failed": 20,
+            "total": 35
+          },
+          "children": [
+            {
+              "data": {
+                "name": "Malaysia GEB",
+                "passed": 15,
+                "failed": 20,
+                "total": 35
               }
             }
           ]
