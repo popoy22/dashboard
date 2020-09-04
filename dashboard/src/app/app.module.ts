@@ -15,6 +15,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { GraphByEnviromentComponent } from './components/graph/graph-by-enviroment/graph-by-enviroment.component';
+import { GraphByCountryComponent } from './components/graph/graph-by-country/graph-by-country.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     LoginComponent,
     HomeComponent,
     DashboardComponent,
+    GraphByEnviromentComponent,
+    GraphByCountryComponent,
   ],
   imports: [
     BrowserModule,

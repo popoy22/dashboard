@@ -15,4 +15,18 @@ export class TestsuiteService {
       .toPromise()
       .then((res) => <TreeNode[]>res.data);
   }
+
+  getByEnviroment() {
+    return this.http
+      .get<any>('assets/byEnviroment.json')
+      .toPromise()
+      .then((res) => <TreeNode[]>res.data);
+  }
+
+  getByCountry() {
+    return this.http
+      .get<any>('assets/byCountry.json')
+      .toPromise()
+      .then((res) => <TreeNode[]>res.data);
+  }
 }
