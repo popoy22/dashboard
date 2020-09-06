@@ -1,1 +1,44 @@
-<p>login works!</p>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div id="login-wrapper" style="margin-top: 5%">
+    <img src="assets/layout/images/login-logo.png" class="logo" />
+
+    <div id="login-container">
+      <span class="title">Test Environment Availability</span>
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-12" *ngIf="msg">
+          <p-message severity="error" text="{{ msg }}"></p-message>
+        </div>
+
+        <div class="ui-g-12">
+          <input
+            type="text"
+            autocomplete="off"
+            class="ui-inputtext ui-corner-all ui-state-default ui-widget"
+            placeholder="Email"
+            formControlName="email"
+          />
+        </div>
+        <div class="ui-g-12">
+          <input
+            type="password"
+            autocomplete="off"
+            class="ui-inputtext ui-corner-all ui-state-default ui-widget"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+
+        <div class="ui-g-12">
+          <button
+            pButton
+            type="submit"
+            [disabled]="!loginForm.valid"
+            [label]="isLoading == true ? 'Logging in...' : 'Login'"
+          ></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="login-footer"></div>
+  </div>
+</form>

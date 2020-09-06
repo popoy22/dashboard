@@ -7,6 +7,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ChartModule } from 'primeng/chart';
 import { TreeTableModule } from 'primeng/treetable';
 import { AccordionModule } from 'primeng/accordion';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 
 import { CardModule } from 'primeng/card';
 
@@ -39,6 +41,8 @@ import { GraphByCountryComponent } from './components/graph/graph-by-country/gra
     CardModule,
     TreeTableModule,
     ReactiveFormsModule,
+    ButtonModule,
+    InputTextModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
