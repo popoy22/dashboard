@@ -21,9 +21,9 @@ export class ResultsComponent implements OnInit {
     var urltoBeCalled = '';
     this.results = null;
 
-    if (this.config.data.params == 'params-failed') {
+    if (this.config.data.params == 'params-success') {
       urltoBeCalled = 'assets/resultsSuccess.json';
-    } else if (this.config.data.params == 'params-success') {
+    } else if (this.config.data.params == 'params-failed') {
       urltoBeCalled = 'assets/resultsFailed.json';
     } else if (this.config.data.params == 'params-all') {
       urltoBeCalled = 'assets/resultsSuccessAndFailed.json';

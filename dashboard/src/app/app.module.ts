@@ -13,6 +13,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CardModule } from 'primeng/card';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { TableModule } from 'primeng/table';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,6 +50,7 @@ import { ResultsComponent } from './components/results/results.component';
     InputTextModule,
     DynamicDialogModule,
     TableModule,
+    ProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
