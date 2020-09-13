@@ -70,13 +70,14 @@ export class GraphByEnviromentComponent implements OnInit {
     });
   }
 
-  showPopup(title, params) {
+  showNewPopup(parent = '', rowData, type) {
     const ref = this.dialogService.open(ResultsComponent, {
       data: {
-        params: params,
-        // sasi you can add more params here to received in result component
+        parent: parent,
+        rowData: rowData,
+        type: type,
       },
-      header: title,
+      header: rowData.name,
       width: '70%',
     });
   }

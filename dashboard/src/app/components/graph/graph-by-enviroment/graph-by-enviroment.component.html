@@ -30,27 +30,28 @@
                   )
                 "
                 style="cursor: pointer"
-                >{{ rowData.name }}</a
-              >
+                >{{ rowData.name }}
+              </a>
             </td>
             <td>
               <a
                 style="color: green; cursor: pointer"
-                (click)="showPopup(rowData.name + ' Success', 'params-success')"
-                >{{ rowData.passed }}</a
+                (click)="showNewPopup(t.value.data.name, rowData, 'success')"
+              >
+                {{ rowData.passed }}</a
               >
             </td>
             <td>
               <a
                 style="color: red; cursor: pointer"
-                (click)="showPopup(rowData.name + ' Failed', 'params-failed')"
+                (click)="showNewPopup(t.value.data.name, rowData, 'failed')"
                 >{{ rowData.failed }}</a
               >
             </td>
             <td>
               <a
                 style="color: black; cursor: pointer; font-weight: bolder"
-                (click)="showPopup(rowData.name, 'params-all')"
+                (click)="showNewPopup(t.value.data.name, rowData, 'all')"
                 >{{ rowData.total }}</a
               >
             </td>

@@ -20,18 +20,20 @@ export class ResultsComponent implements OnInit {
   ngOnInit(): void {
     var urltoBeCalled = '';
     this.results = null;
+    console.log(this.config.data.parent);
+    console.log(this.config.data.rowData);
+    console.log(this.config.data.type);
 
-    if (this.config.data.params == 'params-success') {
+    if (this.config.data.type == 'success') {
       urltoBeCalled = 'assets/resultsSuccess.json';
-    } else if (this.config.data.params == 'params-failed') {
+    } else if (this.config.data.type == 'failed') {
       urltoBeCalled = 'assets/resultsFailed.json';
-    } else if (this.config.data.params == 'params-all') {
+    } else if (this.config.data.type == 'all') {
       urltoBeCalled = 'assets/resultsSuccessAndFailed.json';
     }
 
     this.testsuiteService.getResults(urltoBeCalled).then((res) => {
       this.results = res;
-      console.log(res);
     });
   }
 }
