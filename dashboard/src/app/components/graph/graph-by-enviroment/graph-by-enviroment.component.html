@@ -33,9 +33,27 @@
                 >{{ rowData.name }}</a
               >
             </td>
-            <td [innerHTML]="rowData.passed" style="color: green"></td>
-            <td [innerHTML]="rowData.failed" style="color: red"></td>
-            <td [innerHTML]="rowData.total" style="font-weight: bolder"></td>
+            <td>
+              <a
+                style="color: green; cursor: pointer"
+                (click)="showPopup(rowData.name + ' Success', 'params-success')"
+                >{{ rowData.passed }}</a
+              >
+            </td>
+            <td>
+              <a
+                style="color: red; cursor: pointer"
+                (click)="showPopup(rowData.name + ' Failed', 'params-failed')"
+                >{{ rowData.failed }}</a
+              >
+            </td>
+            <td>
+              <a
+                style="color: black; cursor: pointer; font-weight: bolder"
+                (click)="showPopup(rowData.name, 'params-all')"
+                >{{ rowData.total }}</a
+              >
+            </td>
           </tr>
         </ng-template>
 

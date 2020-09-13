@@ -1,0 +1,20 @@
+<p-table [value]="results">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Test Case Name</th>
+      <th>Status</th>
+      <th>Time of Execution</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-result>
+    <tr>
+      <td>{{ result.name }}</td>
+      <td>
+        <span [class]="'badge-' + result.status.toLowerCase()">{{
+          result.status
+        }}</span>
+      </td>
+      <td>{{ result.time }}</td>
+    </tr>
+  </ng-template>
+</p-table>

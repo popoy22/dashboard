@@ -11,6 +11,8 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 
 import { CardModule } from 'primeng/card';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { TableModule } from 'primeng/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +21,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GraphByEnviromentComponent } from './components/graph/graph-by-enviroment/graph-by-enviroment.component';
 import { GraphByCountryComponent } from './components/graph/graph-by-country/graph-by-country.component';
+import { ResultsComponent } from './components/results/results.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { GraphByCountryComponent } from './components/graph/graph-by-country/gra
     DashboardComponent,
     GraphByEnviromentComponent,
     GraphByCountryComponent,
+    ResultsComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,8 @@ import { GraphByCountryComponent } from './components/graph/graph-by-country/gra
     ReactiveFormsModule,
     ButtonModule,
     InputTextModule,
+    DynamicDialogModule,
+    TableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -2,18 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { TestsuiteService } from '../../../services/testsuite.service';
 import { TreeNode } from 'primeng/api';
 import 'chartjs-plugin-labels';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ResultsComponent } from '../../results/results.component';
 
 @Component({
   selector: 'app-graph-by-country',
   templateUrl: './graph-by-country.component.html',
   styleUrls: ['./graph-by-country.component.scss'],
+  providers: [DialogService],
 })
 export class GraphByCountryComponent implements OnInit {
   data: any = [];
   options: any = [];
   tests: TreeNode[];
 
-  constructor(private testService: TestsuiteService) {}
+  constructor(
+    private testService: TestsuiteService,
+    public dialogService: DialogService
+  ) {}
 
   ngOnInit(): void {
     this.loadTreeTable();
@@ -29,8 +35,8 @@ export class GraphByCountryComponent implements OnInit {
           datasets: [
             {
               data: [test.data.passed, test.data.failed],
-              backgroundColor: ['#089724', '#FF6384'],
-              hoverBackgroundColor: ['#089724', '#FF6384'],
+              backgroundColor: ['#089724', '#e50637'],
+              hoverBackgroundColor: ['#089724', '#e50637'],
             },
           ],
         });
@@ -64,6 +70,17 @@ export class GraphByCountryComponent implements OnInit {
     });
   }
 
+  showPopup(title, params) {
+    const ref = this.dialogService.open(ResultsComponent, {
+      data: {
+        params: params,
+        // sasi you can add more params here to received in result component
+      },
+      header: title,
+      width: '70%',
+    });
+  }
+
   // Changing Graph
   clickGraph(index, passed, failed, title) {
     this.data[index] = {
@@ -71,8 +88,8 @@ export class GraphByCountryComponent implements OnInit {
       datasets: [
         {
           data: [passed, failed],
-          backgroundColor: ['#089724', '#FF6384'],
-          hoverBackgroundColor: ['#089724', '#FF6384'],
+          backgroundColor: ['#089724', '#e50637'],
+          hoverBackgroundColor: ['#089724', '#e50637'],
         },
       ],
     };

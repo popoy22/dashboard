@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "name": "Test Case Name 1",
+      "status": "Success",
+      "time": "09:00 PM"
+    },
+    {
+      "name": "Test Case Name 2",
+      "status": "Success",
+      "time": "09:00 PM"
+    },
+    {
+      "name": "Test Case Name 3",
+      "status": "Success",
+      "time": "09:00 PM"
+    },
+    {
+      "name": "Test Case Name 4",
+      "status": "Success",
+      "time": "09:00 PM"
+    },
+    {
+      "name": "Test Case Name 5",
+      "status": "Success",
+      "time": "09:00 PM"
+    },
+    {
+      "name": "Test Case Name 6",
+      "status": "Success",
+      "time": "09:00 PM"
+    }
+  ]
+}

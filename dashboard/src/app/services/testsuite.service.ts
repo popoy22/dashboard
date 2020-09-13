@@ -29,4 +29,14 @@ export class TestsuiteService {
       .toPromise()
       .then((res) => <TreeNode[]>res.data);
   }
+
+  getResults(url) {
+    return this.http
+      .get<any>(url)
+      .toPromise()
+      .then((res) => <any>res.data)
+      .then((data) => {
+        return data;
+      });
+  }
 }
