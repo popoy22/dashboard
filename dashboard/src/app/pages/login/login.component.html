@@ -1,34 +1,28 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <div id="login-wrapper" style="margin-top: 5%">
-    <img src="assets/layout/images/login-logo.png" class="logo" />
-
     <div id="login-container">
-      <span class="title">Test Environment Availability</span>
-      <div class="ui-g ui-fluid">
-        <div class="ui-g-12" *ngIf="msg">
-          <p-message severity="error" text="{{ msg }}"></p-message>
+      <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-8">
+          <h1 style="text-align: left; font-weight: bolder">Login</h1>
+          <p style="text-align: left">Sign in to your account</p>
+        </div>
+        <div class="p-col-12 p-md-4">
+          <img src="assets/layout/images/login-logo.png" style="width: 100%" />
+        </div>
+        <div class="p-col-12 p-md-12">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input type="text" pInputText placeholder="Username" />
+          </div>
+        </div>
+        <div class="p-col-12 p-md-12">
+          <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+            <input type="text" pInputText placeholder="Password" />
+          </div>
         </div>
 
-        <div class="ui-g-12">
-          <input
-            type="text"
-            autocomplete="off"
-            class="ui-inputtext ui-corner-all ui-state-default ui-widget"
-            placeholder="Email"
-            formControlName="email"
-          />
-        </div>
-        <div class="ui-g-12">
-          <input
-            type="password"
-            autocomplete="off"
-            class="ui-inputtext ui-corner-all ui-state-default ui-widget"
-            placeholder="Password"
-            formControlName="password"
-          />
-        </div>
-
-        <div class="ui-g-12">
+        <div class="p-col-12 p-md-4">
           <button
             pButton
             type="submit"
@@ -36,9 +30,13 @@
             [label]="isLoading == true ? 'Logging in...' : 'Login'"
           ></button>
         </div>
+        <div class="p-col-12 p-md-8" style="text-align: right">
+          <a href="#"><small>Register</small></a
+          ><br />
+          <a href="#"><small>Forgot Password</small></a
+          ><br />
+        </div>
       </div>
     </div>
-
-    <div class="login-footer"></div>
   </div>
 </form>
