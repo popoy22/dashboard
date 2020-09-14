@@ -14,6 +14,8 @@ import { CardModule } from 'primeng/card';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { TableModule } from 'primeng/table';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { MenubarModule } from 'primeng/menubar';
+import { PanelModule } from 'primeng/panel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +25,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GraphByEnviromentComponent } from './components/graph/graph-by-enviroment/graph-by-enviroment.component';
 import { GraphByCountryComponent } from './components/graph/graph-by-country/graph-by-country.component';
 import { ResultsComponent } from './components/results/results.component';
+import { MenusComponent } from './components/menus/menus.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { ResultsComponent } from './components/results/results.component';
     GraphByEnviromentComponent,
     GraphByCountryComponent,
     ResultsComponent,
+    MenusComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +55,8 @@ import { ResultsComponent } from './components/results/results.component';
     DynamicDialogModule,
     TableModule,
     ProgressSpinnerModule,
+    MenubarModule,
+    PanelModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

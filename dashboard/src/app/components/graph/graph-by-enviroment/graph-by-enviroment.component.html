@@ -1,85 +1,94 @@
-<div class="p-grid mt p-mt-4">
-  <div class="p-col p-md-6" *ngFor="let t of tests | keyvalue">
-    <p-card header="{{ t.value.data.name }}">
-      <p-chart
-        type="pie"
-        [data]="data[t.key]"
-        [options]="options[t.key]"
-      ></p-chart>
-      <br /><br />
-      <p-treeTable [value]="t.value.children">
-        <ng-template pTemplate="header">
-          <tr>
-            <th>Name</th>
-            <th>Passed</th>
-            <th>Failed</th>
-            <th>Total</th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
-          <tr [ttRow]="rowNode">
-            <td>
-              <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
-              <a
-                (click)="
-                  clickGraph(
-                    t.key,
-                    rowData.passed,
-                    rowData.failed,
-                    rowData.name
-                  )
-                "
-                style="cursor: pointer"
-                >{{ rowData.name }}
-              </a>
-            </td>
-            <td>
-              <a
-                style="color: green; cursor: pointer"
-                (click)="showNewPopup(t.value.data.name, rowData, 'success')"
-              >
-                {{ rowData.passed }}
-              </a>
-            </td>
-            <td>
-              <a
-                style="color: red; cursor: pointer"
-                (click)="showNewPopup(t.value.data.name, rowData, 'failed')"
-                >{{ rowData.failed }}</a
-              >
-            </td>
-            <td>
-              <a
-                style="color: black; cursor: pointer; font-weight: bolder"
-                (click)="showNewPopup(t.value.data.name, rowData, 'all')"
-                >{{ rowData.total }}</a
-              >
-            </td>
-          </tr>
-        </ng-template>
+<div class="p-grid">
+  <div class="p-col p-md-8 p-md-offset-2">
+    <div class="p-grid mt p-mt-4" *ngFor="let t of tests | keyvalue">
+      <div class="p-col p-md-6">
+        <p-panel header="{{ t.value.data.name }}">
+          <p-chart
+            type="pie"
+            [data]="data[t.key]"
+            [options]="options[t.key]"
+          ></p-chart>
+        </p-panel>
+      </div>
+      <div class="p-col p-md-6">
+        <p-panel header="{{ t.value.data.name }}">
+          <p-treeTable [value]="t.value.children">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Name</th>
+                <th>Passed</th>
+                <th>Failed</th>
+                <th>Total</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+              <tr [ttRow]="rowNode">
+                <td>
+                  <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+                  <a
+                    (click)="
+                      clickGraph(
+                        t.key,
+                        rowData.passed,
+                        rowData.failed,
+                        rowData.name
+                      )
+                    "
+                    style="cursor: pointer"
+                    >{{ rowData.name }}
+                  </a>
+                </td>
+                <td>
+                  <a
+                    style="color: green; cursor: pointer"
+                    (click)="
+                      showNewPopup(t.value.data.name, rowData, 'success')
+                    "
+                  >
+                    {{ rowData.passed }}
+                  </a>
+                </td>
+                <td>
+                  <a
+                    style="color: red; cursor: pointer"
+                    (click)="showNewPopup(t.value.data.name, rowData, 'failed')"
+                    >{{ rowData.failed }}</a
+                  >
+                </td>
+                <td>
+                  <a
+                    style="color: black; cursor: pointer; font-weight: bolder"
+                    (click)="showNewPopup(t.value.data.name, rowData, 'all')"
+                    >{{ rowData.total }}</a
+                  >
+                </td>
+              </tr>
+            </ng-template>
 
-        <ng-template pTemplate="footer">
-          <tr>
-            <td>
-              <a
-                style="cursor: pointer"
-                (click)="
-                  clickGraph(
-                    t.key,
-                    t.value.data.passed,
-                    t.value.data.failed,
-                    t.value.data.name
-                  )
-                "
-                >{{ t.value.data.name }} Totals</a
-              >
-            </td>
-            <td>{{ t.value.data.passed }}</td>
-            <td>{{ t.value.data.failed }}</td>
-            <td>{{ t.value.data.passed + t.value.data.failed }}</td>
-          </tr>
-        </ng-template>
-      </p-treeTable>
-    </p-card>
+            <ng-template pTemplate="footer">
+              <tr>
+                <td>
+                  <a
+                    style="cursor: pointer"
+                    (click)="
+                      clickGraph(
+                        t.key,
+                        t.value.data.passed,
+                        t.value.data.failed,
+                        t.value.data.name
+                      )
+                    "
+                    >{{ t.value.data.name }} Totals</a
+                  >
+                </td>
+                <td>{{ t.value.data.passed }}</td>
+                <td>{{ t.value.data.failed }}</td>
+                <td>{{ t.value.data.passed + t.value.data.failed }}</td>
+              </tr>
+            </ng-template>
+          </p-treeTable>
+        </p-panel>
+      </div>
+    </div>
   </div>
 </div>
